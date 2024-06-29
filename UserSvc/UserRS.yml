@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersvc-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: usersvc
+  template:
+    metadata:
+      labels:
+        app: usersvc
+    spec:
+      containers:
+      - name: usercontainer
+        image: vanshk7/usersvc
+        # imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: user-postgresql-service

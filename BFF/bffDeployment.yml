@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bffsvc-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bffsvc
+  template:
+    metadata:
+      labels:
+        app: bffsvc
+    spec:
+      containers:
+      - name: usercontainer
+        image: vanshk7/bffsvc
+        ports:
+        - containerPort: 3003
+        env:
+        - name: PRODUCT_SVC_BASE_URL
+          value: 'http://productsvc:3001'
+        - name: ORDER_SVC_BASE_URL
+          value: 'http://ordersvc:3002'

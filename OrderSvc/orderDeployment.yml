@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ordersvc-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ordersvc
+  template:
+    metadata:
+      labels:
+        app: ordersvc
+    spec:
+      containers:
+      - name: usercontainer
+        image: vanshk7/ordersvc
+        ports:
+        - containerPort: 3002
+        env:
+        - name: DB_HOST
+          value: order-postgresql-service # order Postgres DB service name
+        - name: DB_PORT
+          value: '5432'
