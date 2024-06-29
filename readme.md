@@ -1,5 +1,7 @@
 # About
 BFF Microservice Architecture is designed and explained in the 3 Part series blog. You can acces the blog here:
+https://vanshkapoor.hashnode.dev/part-1-creating-bff-microservice-architecture-using-nodejs-and-kubernetes
+
 
 
 # Setup guide
